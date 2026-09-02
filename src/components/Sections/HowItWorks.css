@@ -1,0 +1,95 @@
+.how-it-works-section {
+    padding: 10rem 0;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.process-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    margin-top: 4rem;
+}
+
+.process-flow::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-border) 20%, var(--glass-border) 80%, transparent);
+    z-index: 0;
+}
+
+.process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-badge {
+    position: absolute;
+    top: -20px;
+    right: 20%;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    opacity: 0.05;
+    font-family: var(--font-mono);
+}
+
+.step-icon-container {
+    width: 100px;
+    height: 100px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step:hover .step-icon-container {
+    transform: scale(1.1) rotate(5deg);
+    border-color: var(--primary);
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.5);
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.step-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 240px;
+}
+
+.step-arrow {
+    display: none; /* We use the background line instead */
+}
+
+@media (max-width: 1024px) {
+    .process-flow { grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+    .process-flow::before { display: none; }
+}
+
+@media (max-width: 640px) {
+    .process-flow { grid-template-columns: 1fr; }
+}
